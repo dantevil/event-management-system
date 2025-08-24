@@ -22,7 +22,6 @@ const getEvents = async (req, res) => {
 const updateEvent = async (req, res) => {
   try {
     const eventId = req.params.id;
-
     const updatedEvent = await Event.findByIdAndUpdate(
       eventId,
       { $set: req.body },
@@ -48,7 +47,6 @@ const deleteEvent = async (req, res) => {
     if (!deletedEvent) {
       return res.status(404).json({ message: 'Event not found' });
     }
-
     res.json({ message: 'Event deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Error deleting event', error: error.message });
