@@ -13,9 +13,7 @@ const Login = () => {
     const submit = async (e) => {
         try {
             e.preventDefault();
-            console.log(form);
             const res = await login(form);
-            console.log(res);
             localStorage.setItem('token', res.token);
             navigate('/register', { state: { email: form.email } });
         } catch (err) {
@@ -57,5 +55,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;
